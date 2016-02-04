@@ -9,6 +9,7 @@ modules:
     enabled:
         - PhpBrowser
         - AcceptanceHelper
+        - WordPressHelper
     config:
         PhpBrowser:
             url: 'http://localhost/myapp/'
