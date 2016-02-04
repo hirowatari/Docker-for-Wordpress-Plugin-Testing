@@ -5,6 +5,8 @@ wordpress:
   volumes:
     - ./wordpress:/var/www/html
     - ./plugin:/data
+  environment:
+    PLUGIN_NAME: your-plugin-name
 db:
   image: mysql:5.5
   environment:
