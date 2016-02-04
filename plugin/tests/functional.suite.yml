@@ -6,4 +6,17 @@
 
 class_name: FunctionalTester
 modules:
-    enabled: [Filesystem, FunctionalHelper, WordPressHelper]
+    enabled:
+
+    enabled:
+        - Filesystem
+        - FunctionalHelper
+        - PhpBrowser
+        - WebDriver
+        - WordPressHelper
+    config:
+        PhpBrowser:
+            url: 'http://localhost/'
+        WebDriver:
+            url: 'http://localhost/'
+            browser: 'phantomjs'

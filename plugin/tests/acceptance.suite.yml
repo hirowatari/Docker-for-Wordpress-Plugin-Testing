@@ -10,6 +10,10 @@ modules:
         - PhpBrowser
         - AcceptanceHelper
         - WordPressHelper
+        - WebDriver
     config:
         PhpBrowser:
-            url: 'http://localhost/myapp/'
+            url: 'http://localhost/'
+        WebDriver:
+            url: 'http://localhost/'
+            browser: 'phantomjs'
