@@ -5,8 +5,6 @@ wordpress:
   volumes:
     - ./wordpress:/var/www/html
     - ./plugin:/data
-  ports:
-    - 81:80
 db:
   image: mysql:5.5
   environment:
