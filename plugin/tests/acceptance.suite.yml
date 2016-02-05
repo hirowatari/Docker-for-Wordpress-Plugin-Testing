@@ -6,17 +6,24 @@
 
 class_name: AcceptanceTester
 modules:
-    enabled:
-        - PhpBrowser
-        - AcceptanceHelper
-        - WordPressHelper
-        - WebDriver
-    config:
-        PhpBrowser:
-            url: 'http://localhost/'
-        WebDriver:
-            url: 'http://localhost/'
-            browser: 'phantomjs'
-            host: phantomjs
-            port: 8910
-            http_proxy: direct
+  enabled:
+    - PhpBrowser
+    - AcceptanceHelper
+    - WordPressHelper
+    - WebDriver
+  config:
+    PhpBrowser:
+      url: 'http://localhost/'
+    WebDriver:
+      url: 'http://localhost/'
+      browser: 'phantomjs'
+      host: phantomjs
+      port: 8910
+      http_proxy: direct
+    Db:
+      dsn: 'mysql:host=db;dbname=wordpress'
+      user: 'root'
+      password: 'example'
+      dump: tests/_data/dump.sql
+      cleanup: true
+      populate: true

@@ -11,3 +11,10 @@ A boilerplate for creating a containerized plugin testing environment using [Cod
 
 ## Run tests
 1. `docker-compose run wordpress codecept run`
+
+## Note
+WordPress user credentials are
+- Username: a
+- Password: a
+- E-mail: a@a.a
+This dump.sql was generated only with the information `wp core install --path=/var/www/html --url=localhost --title='just a wordpress site' --admin_user=a --admin_password=a --admin_email='a@a.a' --skip-email`

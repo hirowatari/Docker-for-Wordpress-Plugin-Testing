@@ -24,10 +24,6 @@ class WordPressHelper extends \Codeception\Module
     }
 
     private function install_wordpress() {
-        $db = new \mysqli($this->database_host, 'root', $_ENV['DB_ENV_MYSQL_ROOT_PASSWORD']);
-        $db->prepare("DROP DATABASE {$this->database_name};")->execute();
-        $db->prepare("CREATE DATABASE {$this->database_name};")->execute();
-
         if (!file_exists("{$this->path_to_wordpress}wp-config-sample.php")) {
             exec("wp core download --path={$this->path_to_wordpress}");
         }
@@ -35,8 +31,6 @@ class WordPressHelper extends \Codeception\Module
         if (!file_exists("{$this->path_to_wordpress}wp-config.php")) {
             exec("wp core config --path={$this->path_to_wordpress} --dbname={$this->database_name} --dbuser={$this->database_user} --dbpass={$_ENV['DB_ENV_MYSQL_ROOT_PASSWORD']} --dbhost={$this->database_host}");
         }
-
-        exec("wp core install --path={$this->path_to_wordpress} --url=localhost --title='just a wordpress site' --admin_user=a --admin_password=a --admin_email='a@a.a' --skip-email");
     }
 
     private function install_plugin() {

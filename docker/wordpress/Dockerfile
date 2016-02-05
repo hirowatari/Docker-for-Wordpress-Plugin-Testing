@@ -12,7 +12,8 @@ RUN apt-get update \
 RUN a2enmod rewrite
 RUN apt-get install -y libpng12-dev libjpeg-dev \
 	&& docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
-	&& docker-php-ext-install gd mysqli mbstring
+	&& docker-php-ext-install gd mysqli \
+	&& docker-php-ext-install mbstring pdo pdo_mysql # for codeception
 
 # Hack to user local user
 ARG GROUP_ID=1000
