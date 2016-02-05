@@ -1,5 +1,5 @@
 wordpress:
-  build: docker/wordpress
+  image: wordpress_plugin_test:0.1
   links:
     - db:db
     - phantomjs:phantomjs
