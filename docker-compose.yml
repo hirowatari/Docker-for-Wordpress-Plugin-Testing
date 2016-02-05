@@ -2,11 +2,15 @@ wordpress:
   build: docker/wordpress
   links:
     - db:db
+    - phantomjs:phantomjs
   volumes:
     - ./wordpress:/var/www/html
     - ./plugin:/data
   environment:
     PLUGIN_NAME: your-plugin-name
+phantomjs:
+  image: wernight/phantomjs:2.1.1
+  command: phantomjs --webdriver=8910
 db:
   image: mysql:5.5
   environment:
