@@ -25,8 +25,8 @@ USER user
 # install composer
 RUN curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
-# install codeception TODO require specific release
-RUN composer global require "codeception/codeception:*"
+# install codeception
+RUN composer global require "codeception/codeception:2.1.2"
 
 # install wp-cli
 RUN sudo curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp \
