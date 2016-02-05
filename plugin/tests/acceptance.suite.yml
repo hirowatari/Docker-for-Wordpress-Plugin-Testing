@@ -17,3 +17,6 @@ modules:
         WebDriver:
             url: 'http://localhost/'
             browser: 'phantomjs'
+            host: phantomjs
+            port: 8910
+            http_proxy: direct
