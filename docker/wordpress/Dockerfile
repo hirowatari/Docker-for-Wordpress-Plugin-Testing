@@ -2,16 +2,16 @@ FROM php:5-apache
 
 RUN apt-get update \
   && apt-get install -y \
-    sudo \
-    curl \
-    subversion \
-    mysql-client
+    curl `# for installing curl` \
+    git `# needed for composer installing` \
+    mysql-client \
+    subversion `# wp-cli dependency` \
+    sudo
 
 RUN apt-get update && apt-get install -y libpng12-dev libjpeg-dev && rm -rf /var/lib/apt/lists/* \
 	&& docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
-	&& docker-php-ext-install gd mysqli
-
-RUN apt-get update && apt-get install -y git
+	&& docker-php-ext-install gd mysqli \
+	&& docker-php-ext-install mbstring # for codeception
 
 # add user
 ARG GROUP_ID=1000
