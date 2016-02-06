@@ -9,6 +9,7 @@ class WordPress extends \Codeception\Module
     private $database_name = 'wordpress';
     private $database_host = 'db';
     private $database_user = 'root';
+    private $database_pass = 'example';
 
     public function _beforeSuite() {
         $this->install_wordpress();
@@ -25,7 +26,7 @@ class WordPress extends \Codeception\Module
         }
 
         if (!file_exists("{$this->path_to_wordpress}wp-config.php")) {
-            exec("wp core config --path={$this->path_to_wordpress} --dbname={$this->database_name} --dbuser={$this->database_user} --dbpass={$_ENV['DB_ENV_MYSQL_ROOT_PASSWORD']} --dbhost={$this->database_host}");
+            exec("wp core config --path={$this->path_to_wordpress} --dbname={$this->database_name} --dbuser={$this->database_user} --dbpass={$this->database_pass} --dbhost={$this->database_host}");
         }
     }
 
