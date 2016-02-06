@@ -8,4 +8,11 @@ class_name: FunctionalTester
 modules:
     enabled:
         # add framework module here
+        - WebDriver:
+            url: http://wordpress
+            browser: 'phantomjs'
+            host: phantomjs
+            port: 8910
         - \Helper\Functional
+        - \Helper\WordPress
+        - Db
