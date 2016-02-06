@@ -13,8 +13,19 @@ A boilerplate for creating a containerized plugin testing environment using [Cod
 1. `docker-compose run wordpress codecept run`
 
 ## Note
+
 WordPress user credentials are
+
 - Username: a
 - Password: a
 - E-mail: a@a.a
-This dump.sql was generated only with the information `wp core install --path=/var/www/html --url=wordpress --title='just a wordpress site' --admin_user=a --admin_password=a --admin_email='a@a.a' --skip-email`
+
+This dump.sql was generated only with the information 
+```
+wp core install --path=/var/www/html --url=wordpress --title='just a wordpress site' --admin_user=a --admin_password=a --admin_email='a@a.a' --skip-email
+```
+
+To debug with xdebug you will need to put your local ip in and wordpress/.htaccess eg
+```
+php_value xdebug.remote_host 192.168.1.100
+```

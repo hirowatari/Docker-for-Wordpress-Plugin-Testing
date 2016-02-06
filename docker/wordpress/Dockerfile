@@ -39,4 +39,9 @@ RUN sudo rm -rf /var/lib/apt/lists/*
 
 WORKDIR /data
 
+RUN sudo pear update-channels \
+    && sudo pear upgrade \
+    && sudo pecl install xdebug
+COPY xdebug.ini /usr/local/etc/php/conf.d/
+
 CMD sudo apache2-foreground

@@ -8,6 +8,8 @@ services:
       - ./plugin:/data
     environment:
       PLUGIN_NAME: your-plugin-name
+    ports:
+      - 80:80
   phantomjs:
     image: wernight/phantomjs:2.1.1
     command: phantomjs --webdriver=8910
