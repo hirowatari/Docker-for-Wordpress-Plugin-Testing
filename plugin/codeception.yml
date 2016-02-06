@@ -15,7 +15,9 @@ extensions:
 modules:
     config:
         Db:
-            dsn: ''
-            user: ''
-            password: ''
+            dsn: 'mysql:host=db;dbname=wordpress'
+            user: 'root'
+            password: 'example'
             dump: tests/_data/dump.sql
+            cleanup: true
+            populate: true
