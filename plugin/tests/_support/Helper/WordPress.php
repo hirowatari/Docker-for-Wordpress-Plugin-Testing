@@ -27,7 +27,7 @@ class WordPress extends \Codeception\Module
     }
 
     private function install_plugin() {
-        exec("cp -r /data/{$_ENV['PLUGIN_NAME']}/ {$this->path_to_wordpress}/wp-content/plugins");
+        exec("ln -sf /data/{$_ENV['PLUGIN_NAME']}/ {$this->path_to_wordpress}/wp-content/plugins");
         exec("wp plugin activate --path={$this->path_to_wordpress} {$_ENV['PLUGIN_NAME']}");
     }
 }
