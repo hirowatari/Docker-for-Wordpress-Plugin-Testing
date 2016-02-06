@@ -16,10 +16,6 @@ class WordPress extends \Codeception\Module
         $this->install_plugin();
     }
 
-    public function _afterSuite() {
-        $this->remove_plugin();
-    }
-
     private function install_wordpress() {
         if (!file_exists("{$this->path_to_wordpress}wp-config-sample.php")) {
             exec("wp core download --path={$this->path_to_wordpress}");
@@ -33,10 +29,5 @@ class WordPress extends \Codeception\Module
     private function install_plugin() {
         exec("cp -r /data/{$_ENV['PLUGIN_NAME']}/ {$this->path_to_wordpress}/wp-content/plugins");
         exec("wp plugin activate --path={$this->path_to_wordpress} {$_ENV['PLUGIN_NAME']}");
-    }
-
-    private function remove_plugin() {
-        exec("wp plugin deactivate --path={$this->path_to_wordpress} {$_ENV['PLUGIN_NAME']}");
-        exec("wp plugin delete --path={$this->path_to_wordpress} {$_ENV['PLUGIN_NAME']}");
     }
 }
