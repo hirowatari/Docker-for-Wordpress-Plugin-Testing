@@ -8,6 +8,8 @@ services:
       - ./plugin:/data
     environment:
       PLUGIN_NAME: your-plugin-name
+    links:
+      - db:db
   phantomjs:
     image: wernight/phantomjs:2.1.1
     command: phantomjs --webdriver=8910
