@@ -1,30 +1,11 @@
 # Codeception Test Suite Configuration
-
-# suite for functional (integration) tests.
-# emulate web requests and make application process them.
-# Include one of framework modules (Symfony2, Yii2, Laravel4) to use it.
+#
+# Suite for functional (integration) tests
+# Emulate web requests and make application process them
+# Include one of framework modules (Symfony2, Yii2, Laravel5) to use it
 
 class_name: FunctionalTester
 modules:
-  enabled:
-    - Filesystem
-    - FunctionalHelper
-    - PhpBrowser
-    - WebDriver
-    - WordPressHelper
-  config:
-    PhpBrowser:
-      url: 'http://localhost/'
-    WebDriver:
-      url: 'http://localhost/'
-      browser: 'phantomjs'
-      host: phantomjs
-      port: 8910
-      http_proxy: direct
-    Db:
-      dsn: 'mysql:host=db;dbname=wordpress'
-      user: 'root'
-      password: 'example'
-      dump: tests/_data/dump.sql
-      cleanup: true
-      populate: true
+    enabled:
+        # add framework module here
+        - \Helper\Functional

@@ -1,14 +1,9 @@
 # Codeception Test Suite Configuration
+#
+# Suite for unit (internal) tests.
 
-# suite for unit (internal) tests.
 class_name: UnitTester
 modules:
-  enabled: [Asserts, UnitHelper, WordPressHelper]
-  config:
-    Db:
-      dsn: 'mysql:host=db;dbname=wordpress'
-      user: 'root'
-      password: 'example'
-      dump: tests/_data/dump.sql
-      cleanup: true
-      populate: true
+    enabled:
+        - Asserts
+        - \Helper\Unit
