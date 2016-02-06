@@ -1,18 +1,18 @@
-wordpress:
-  image: wordpress_plugin_test:0.1.1
-  links:
-    - db:db
-    - phantomjs:phantomjs
-  volumes:
-    - ./wordpress:/var/www/html
-    - ./plugin:/data
-  environment:
-    PLUGIN_NAME: your-plugin-name
-phantomjs:
-  image: wernight/phantomjs:2.1.1
-  command: phantomjs --webdriver=8910
-db:
-  image: mysql:5.5
-  environment:
-    MYSQL_ROOT_PASSWORD: example
-    MYSQL_DATABASE: wordpress
+version: '2'
+
+services:
+  wordpress:
+    image: wordpress_plugin_test:0.1.1
+    volumes:
+      - ./wordpress:/var/www/html
+      - ./plugin:/data
+    environment:
+      PLUGIN_NAME: your-plugin-name
+  phantomjs:
+    image: wernight/phantomjs:2.1.1
+    command: phantomjs --webdriver=8910
+  db:
+    image: mysql:5.5
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: wordpress
