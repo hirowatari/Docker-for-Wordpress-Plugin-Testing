@@ -43,6 +43,6 @@ RUN sudo pear update-channels \
     && sudo pear upgrade \
     && sudo pecl install xdebug
 COPY xdebug.ini /usr/local/etc/php/conf.d/
-COPY php.ini 	/usr/local/etc/php/
+COPY php.ini /usr/local/etc/php/
 
 CMD sudo apache2-foreground
