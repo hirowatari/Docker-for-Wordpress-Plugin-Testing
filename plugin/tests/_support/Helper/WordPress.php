@@ -26,8 +26,17 @@ class WordPress extends \Codeception\Module
         }
     }
 
+    public static function plugin_name() {
+        return getenv('PLUGIN_NAME');
+    }
+
+    public static function plugin_path() {
+        $plugin_name = self::plugin_name();
+        return "/wp-content/plugins/{$plugin_name}";
+    }
+
     private function install_plugin() {
-        $plugin_name = getenv('PLUGIN_NAME');
+        $plugin_name = self::plugin_name();
         exec("ln -sf /data/{$plugin_name}/ {$this->path_to_wordpress}/wp-content/plugins");
         exec("wp plugin activate --path={$this->path_to_wordpress} {$plugin_name}");
     }
