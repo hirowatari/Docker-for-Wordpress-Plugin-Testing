@@ -13,7 +13,7 @@ class WordPress extends \Codeception\Module
 
     public function _beforeSuite($settings = []) {
         $this->install_wordpress();
-        $this->install_plugin();
+        $this->activate_plugin(self::plugin_name());
     }
 
     private function install_wordpress() {
@@ -35,8 +35,7 @@ class WordPress extends \Codeception\Module
         return "/wp-content/plugins/{$plugin_name}";
     }
 
-    private function install_plugin() {
-        $plugin_name = self::plugin_name();
+    private function activate_plugin($plugin_name) {
         exec("ln -sf /data/{$plugin_name}/ {$this->path_to_wordpress}/wp-content/plugins");
         exec("wp plugin activate --path={$this->path_to_wordpress} {$plugin_name}");
     }
