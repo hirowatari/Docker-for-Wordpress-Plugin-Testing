@@ -11,7 +11,7 @@ class WordPress extends \Codeception\Module
     private $database_user = 'root';
     private $database_pass = 'example';
 
-    public function _beforeSuite() {
+    public function _beforeSuite($settings = []) {
         $this->install_wordpress();
         $this->install_plugin();
     }
