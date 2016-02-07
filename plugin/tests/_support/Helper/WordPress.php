@@ -24,6 +24,9 @@ class WordPress extends \Codeception\Module
         if (!file_exists("{$this->path_to_wordpress}wp-config.php")) {
             exec("wp core config --path={$this->path_to_wordpress} --dbname={$this->database_name} --dbuser={$this->database_user} --dbpass={$this->database_pass} --dbhost={$this->database_host}");
         }
+        // running wp core is-installed didn't seem to return anything
+        // trying to install, when already installs, just skip installing
+        exec("wp core install --path={$this->path_to_wordpress} --url=wordpress --title='just a wordpress site' --admin_user=a --admin_password=a --admin_email='a@a.a' --skip-email");
     }
 
     public static function plugin_name() {
