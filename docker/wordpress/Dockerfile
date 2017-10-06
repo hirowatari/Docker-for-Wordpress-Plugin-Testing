@@ -1,4 +1,4 @@
-FROM php:5-apache
+FROM php:5.6-apache
 
 RUN apt-get update \
   && apt-get install -y \
@@ -29,7 +29,7 @@ RUN curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/
 ENV PATH /home/user/.composer/vendor/bin:$PATH
 
 # install codeception
-RUN composer global require "codeception/codeception:2.1.2"
+RUN composer global require "codeception/codeception:2.3.6"
 
 # install wp-cli
 RUN sudo curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp \

@@ -2,7 +2,7 @@ version: '2'
 
 services:
   wordpress:
-    image: wordpress_plugin_test:0.1.1
+    image: wordpress_plugin_test:0.1.2
     volumes:
       - ./wordpress:/var/www/html
       - ./plugin:/data
